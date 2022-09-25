@@ -7,8 +7,8 @@ const useContacts = (options = {filtered: false}) => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getContactsFilter);
 
-  const filteredContacts = contacts.filter(({ name }) =>
-    name.toLowerCase().includes(filter)
+  const filteredContacts = contacts?.filter(({ name }) =>
+  name.toLowerCase().includes(filter.toLowerCase())
   );
 
   return !!options.filtered ? filteredContacts : contacts;
