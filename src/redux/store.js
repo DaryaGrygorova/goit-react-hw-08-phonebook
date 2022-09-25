@@ -1,11 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
 import { itemsSlice } from './itemsSlice';
 import { filterSlice } from './filterSlice';
 
 import {
   persistStore,
-  persistReducer,
+  persistCombineReducers,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -16,17 +15,15 @@ import {
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
 const persistConfig = {
-  key: 'root',
+  key: 'contacts',
   storage,
   whitelist: ['items'],
 };
 
-const rootReducer = combineReducers({
+const persistedReducer = persistCombineReducers(persistConfig, {
   items: itemsSlice.reducer,
   filter: filterSlice.reducer,
 });
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: {
