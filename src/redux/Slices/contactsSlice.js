@@ -1,55 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit';
-import {fetchContacts, addContact, deleteContact} from '../operations';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { fetchContacts, addContact, deleteContact } from '../operations';
+import * as handles from './contactsHandles';
 
-const initialContacts = {
-  items: [],
-  isLoading: false,
-  error: null,
-};
+const actions = [fetchContacts, addContact, deleteContact];
 
 export const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: initialContacts,
-  extraReducers: {
-    [fetchContacts.pending](state) {
-      state.isLoading = true;
-    },
-    [fetchContacts.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.items = action.payload;
-    },
-    [fetchContacts.rejected](state, action) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-    [addContact.pending](state) {
-      state.isLoading = true;
-    },
-    [addContact.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.items.push(action.payload);
-    },
-    [addContact.rejected](state, action) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-    [deleteContact.pending](state) {
-      state.isLoading = true;
-    },
-    [deleteContact.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      const index = state.items.findIndex(item =>
-        item.id === action.payload.id);
-      console.log('payload.id:', action.payload.id, 'index: ', index, 'state.items: ', state.items)
-      state.items.splice(index, 1);
-    },
-    [deleteContact.rejected](state, action) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
+  initialState: {
+    items: [],
+    isLoading: false,
+    error: null,
   },
+  extraReducers: builder =>
+    builder
+      .addCase(fetchContacts.fulfilled, handles.fetchItems)
+      .addCase(addContact.fulfilled, handles.addItem)
+      .addCase(deleteContact.fulfilled, handles.deleteItem)
+      .addMatcher(
+        isAnyOf(...actions.map(action => action.fulfilled)),
+        handles.fulfilled
+      )
+      .addMatcher(
+        isAnyOf(...actions.map(action => action.pending)),
+        handles.pending
+      )
+      .addMatcher(
+        isAnyOf(...actions.map(action => action.rejected)),
+        handles.rejected
+      ),
 });
-
