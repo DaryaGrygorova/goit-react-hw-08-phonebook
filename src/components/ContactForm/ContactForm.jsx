@@ -2,15 +2,15 @@ import { nanoid } from 'nanoid';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
-import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/itemsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/Slicers/contactsSlice';
 
 import { StyledForm, Label, Input, Button } from './ContactForm.styled';
-import useContacts from 'components/hooks/useContacts';
+import { selectContacts } from 'redux/selectors';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useContacts();
+  const contacts = useSelector(selectContacts);
 
   const nameInputId = nanoid();
   const numberInputId = nanoid();

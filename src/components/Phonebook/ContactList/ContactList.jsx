@@ -1,10 +1,11 @@
 import { Box } from 'components/Box';
 import ContactItem from './ContactItem';
 import { ContactItemWrap } from './ContactList.styled';
-import useContacts from 'components/hooks/useContacts.js';
+import { useSelector } from 'react-redux';
+import { selectFilteredContacts } from 'redux/selectors';
 
 const ContactList = () => {
-  const contacts = useContacts({ filtered: true });
+  const contacts = useSelector(selectFilteredContacts);
 
   return (
     <Box
