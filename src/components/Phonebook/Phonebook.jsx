@@ -10,27 +10,22 @@ const Phonebook = () => {
   const contacts = useSelector(selectContacts);
   const contactsIsLoading = useSelector(selectContactsIsLoading);
 
-  return (
-    <>
-      {contactsIsLoading && (
-        <Notification message="Wait a few seconds, the process is in progress..." />
-      )}
-      {contacts?.length ? (
-        <Box
-          display="flex"
-          flexDirection="column"
-          gridGap="10px"
-          padding="0"
-          margin="0 auto"
-          maxWidth="650px"
-        >
-          <Filter />
-          <ContactList />
-        </Box>
-      ) : (
-        <Notification message="There are no contacts." />
-      )}
-    </>
+  return contactsIsLoading ? (
+    <Notification message="Wait a few seconds, the process is in progress..." />
+  ) : contacts?.length ? (
+    <Box
+      display="flex"
+      flexDirection="column"
+      gridGap="10px"
+      padding="0"
+      margin="0 auto"
+      maxWidth="650px"
+    >
+      <Filter />
+      <ContactList />
+    </Box>
+  ) : (
+    <Notification message="There are no contacts." />
   );
 };
 
