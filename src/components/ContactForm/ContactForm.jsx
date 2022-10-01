@@ -3,7 +3,7 @@ import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/Slicers/contactsSlice';
+import { addContact } from 'redux/operations';
 
 import { StyledForm, Label, Input, Button } from './ContactForm.styled';
 import { selectContacts } from 'redux/selectors';
@@ -42,7 +42,7 @@ const ContactForm = () => {
 
     contacts?.find(({ name }) => name.toLowerCase().includes(normalizedName))
       ? alert(`${value.name} is already in contacts.`)
-      : dispatch(addContact({ ...value, id: nanoid() }));
+      : dispatch(addContact({ ...value }));
     resetForm();
   };
 

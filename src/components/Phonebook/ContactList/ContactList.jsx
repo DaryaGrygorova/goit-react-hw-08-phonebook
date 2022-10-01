@@ -15,9 +15,9 @@ const ContactList = () => {
       flexWrap="wrap"
       justifyContent="space-between"
     >
-      {contacts.map(({ name, number, id }) => (
+      {contacts.map(({ name, phone, id }) => (
         <ContactItemWrap key={id}>
-          <ContactItem name={name} number={number} id={id} />
+          <ContactItem name={name} phone={phone} id={id} />
         </ContactItemWrap>
       ))}
     </Box>

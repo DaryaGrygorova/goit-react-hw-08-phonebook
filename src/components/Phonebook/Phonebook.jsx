@@ -4,10 +4,11 @@ import Notification from '../Notification';
 import ContactList from './ContactList';
 
 import { useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts, selectContactsIsLoading } from 'redux/selectors';
 
 const Phonebook = () => {
   const contacts = useSelector(selectContacts);
+  const contactsIsLoading = useSelector(selectContactsIsLoading);
 
   return contacts?.length ? (
     <Box
@@ -18,6 +19,9 @@ const Phonebook = () => {
       margin="0 auto"
       maxWidth="650px"
     >
+      {contactsIsLoading && (
+        <Notification message="Wait a few seconds, the process is in progress..." />
+      )}
       <Filter />
       <ContactList />
     </Box>
