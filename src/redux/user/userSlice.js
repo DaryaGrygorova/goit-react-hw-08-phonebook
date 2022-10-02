@@ -1,13 +1,13 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { fetchUser, signUp, logIn, logOut } from './userOperations';
+import { fetchCurrentUser, signUp, logIn, logOut } from './userOperations';
 import * as handles from './userHandles';
 
-const actions = [fetchUser, signUp, logIn, logOut];
+const actions = [fetchCurrentUser, signUp, logIn, logOut];
 
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    profile: {},
+    profile: {email:'', name:''},
     isLogIn: false,
     token: null,
     isLoading: false,
@@ -15,7 +15,7 @@ export const userSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(fetchUser.fulfilled, handles.fetchUser)
+      .addCase(fetchCurrentUser.fulfilled, handles.fetchUser)
       .addCase(signUp.fulfilled, handles.singUp)
       .addCase(logIn.fulfilled, handles.logIn)
       .addCase(logOut.fulfilled, handles.logOut)

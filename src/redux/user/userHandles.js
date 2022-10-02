@@ -10,13 +10,12 @@ export const fulfilled = state => {
 export const rejected = (state, action) => {
   state.isLoading = false;
   console.log(action.payload)
-  debugger;
   state.error = action.payload;
 };
 
 export const fetchUser = (state, action) => {
   state.profile = action.payload;
-    state.isLogIn = true;
+  state.isLogIn = true;
 };
 
 export const singUp = (state, action) => {
@@ -33,7 +32,7 @@ export const logIn = (state, action) => {
 
 export const logOut = (state, action) => {
   state.token = null;
-  state.profile = {};
+  state.profile = {email:'', name:''};
   state.isLogIn = false;
 };
 

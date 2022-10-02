@@ -10,15 +10,19 @@ import {
 } from 'redux/contacts/contactsSelectors';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/contactsOperations';
+import { userAuthSelector } from 'redux/user/userSelectors';
 
 const Phonebook = () => {
   const dispatch = useDispatch();
+  const isLogIn = useSelector(userAuthSelector.selectIsLogIn);
   const contacts = useSelector(selectContacts);
   const contactsIsLoading = useSelector(selectContactsIsLoading);
 
   useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    if (isLogIn) {
+      dispatch(fetchContacts());
+    }
+  }, [dispatch, isLogIn]);
 
   return contactsIsLoading ? (
     <Notification message="Wait a few seconds, the process is in progress..." />

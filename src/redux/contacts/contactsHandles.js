@@ -8,6 +8,7 @@ export const fulfilled = state => {
 };
 
 export const rejected = (state, action) => {
+  state.items = {};
   state.isLoading = false;
   state.error = action.payload;
 };
