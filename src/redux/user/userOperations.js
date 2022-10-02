@@ -16,13 +16,13 @@ axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 export const fetchCurrentUser = createAsyncThunk(
   'user/fetchUser',
   async (_, thunkAPI) => {
-      const persistedToken = thunkAPI.getState().user.token;
-      
-    if (!persistedToken) {
-      return thunkAPI.rejectWithValue("Unauthorized user");
-    }
-    token.set(thunkAPI.getState().user.token);
+    
     try {
+      const persistedToken = thunkAPI.getState().user.token;
+      if (!persistedToken) {
+        throw new Error("Unauthorized user");
+      }
+    token.set(thunkAPI.getState().user.token);
       const response = await axios.get('/users/current');
       return response.data;
     } catch (err) {

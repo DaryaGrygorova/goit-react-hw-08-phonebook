@@ -1,15 +1,19 @@
-import { MagnifyingGlass } from 'react-loader-spinner';
+import { Bars } from 'react-loader-spinner';
 import { Box } from './Box';
 
 const Loader = () => {
   return (
-    <Box display="flex" justifyContent="center">
-      <MagnifyingGlass
+    <Box
+      display="flex"
+      alignItems="center"
+      height="95vw"
+      justifyContent="center"
+    >
+      <Bars
         visible={true}
-        height="80px"
-        width="80px"
+        height="100px"
+        width="100px"
         ariaLabel="MagnifyingGlass-loading"
-        glassColor="#c0efff"
         color="#3f51b5"
       />
     </Box>

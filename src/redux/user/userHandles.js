@@ -30,7 +30,7 @@ export const logIn = (state, action) => {
   state.isLogIn = true;
 };
 
-export const logOut = (state, action) => {
+export const logOut = (state) => {
   state.token = null;
   state.profile = {email:'', name:''};
   state.isLogIn = false;
