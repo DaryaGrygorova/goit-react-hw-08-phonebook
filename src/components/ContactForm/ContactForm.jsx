@@ -3,10 +3,10 @@ import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
+import { addContact } from 'redux/contacts/contactsOperations';
+import { selectContacts } from 'redux/contacts/contactsSelectors';
 
 import { StyledForm, Label, Input, Button } from './ContactForm.styled';
-import { selectContacts } from 'redux/selectors';
 
 const ContactForm = () => {
   const dispatch = useDispatch();

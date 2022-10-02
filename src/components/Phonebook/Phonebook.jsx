@@ -3,12 +3,22 @@ import Filter from './Filter';
 import Notification from '../Notification';
 import ContactList from './ContactList';
 
-import { useSelector } from 'react-redux';
-import { selectContacts, selectContactsIsLoading } from 'redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectContacts,
+  selectContactsIsLoading,
+} from 'redux/contacts/contactsSelectors';
+import { useEffect } from 'react';
+import { fetchContacts } from 'redux/contacts/contactsOperations';
 
 const Phonebook = () => {
+  const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const contactsIsLoading = useSelector(selectContactsIsLoading);
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return contactsIsLoading ? (
     <Notification message="Wait a few seconds, the process is in progress..." />
