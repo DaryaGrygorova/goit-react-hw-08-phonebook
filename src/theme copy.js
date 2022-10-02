@@ -2,15 +2,14 @@ export const theme = {
   colors: {
     black: '#000',
     white: '#fff',
-    text: '#30144D',
-    background: 'rgb(255,255,255,0.5)',
-    primary: '#b49ef5',
-    secondary: '#9376ed',
-    accent: '#b49ef5',
+    text: '#19100B',
+    background: '#fcf5e4',
+    primary: '#c5a78a',
+    secondary: '#6f4e37',
+    accent: '#3A2113',
     muted: '#f6f6f6',
-  
   },
-  space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
+  space: [0, 2, 4, 8, 16, 32, 40, 48, 64, 128, 256],
   fonts: {
     body: 'system-ui, sans-serif',
     heading: 'system-ui, sans-serif',

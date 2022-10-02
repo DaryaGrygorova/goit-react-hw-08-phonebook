@@ -20,10 +20,9 @@ const ContactsPage = () => {
   }, [dispatch, isLogIn]);
 
   return (
-    <Box>
-      <h1>Phonebook</h1>
-
+    <Box display="flex">
       <Section>
+        <h1>Phonebook</h1>
         <ContactForm />
       </Section>
 

@@ -3,7 +3,7 @@ import AuthNav from 'components/AuthNav';
 import { Box } from 'components/Box';
 import Navigation from 'components/Navigation/Navigation';
 import Section from '../Section';
-import UserMenu from './../UserMenu/UserMenu';
+import UserMenu from '../UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import { userAuthSelector } from 'redux/user/userSelectors';
 

@@ -3,15 +3,18 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Loader from './Loader';
-import AppBar from './AppBar';
+import Header from './Header';
+import { Container } from '@mui/material';
 
 const Layout = () => {
   return (
     <>
-      <AppBar />
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+      <Header />
+      <Container maxWidth="md">
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </Container>
     </>
   );
 };
