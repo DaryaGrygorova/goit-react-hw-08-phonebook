@@ -26,13 +26,12 @@ const LogInForm = () => {
       .required('"Password" is a required field')
       .matches(
         passwordRegExp,
-        'The password must contain only letters and numbers. It must contain at least one lowercase character and one uppercase character. Password length is at least 8 characters.'
+        'The password must contain only latin letters and numbers. It must contain at least one lowercase character and one uppercase character. Password length is at least 8 characters.'
       ),
   });
 
   const onSubmitHandler = (value, { resetForm }) => {
     dispatch(logIn({ ...value }));
-    console.log({ ...value });
     resetForm();
   };
 
@@ -45,7 +44,7 @@ const LogInForm = () => {
       <StyledForm>
         <label htmlFor={emailInputId}>E-mail</label>
         <Input id={emailInputId} type="email" name="email" autoComplete="off" />
-        <ErrorMessage name="email" component="div" />
+        <ErrorMessage name="email" component="div" style={{ color: 'red' }} />
 
         <label htmlFor={passwordInputId}>Password</label>
         <Input
@@ -54,7 +53,11 @@ const LogInForm = () => {
           name="password"
           autoComplete="off"
         />
-        <ErrorMessage name="password" component="div" />
+        <ErrorMessage
+          name="password"
+          component="div"
+          style={{ color: 'red' }}
+        />
 
         <StyledButton type="submit">Log in</StyledButton>
       </StyledForm>

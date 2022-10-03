@@ -7,7 +7,7 @@ import { theme } from 'theme';
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: ${theme.space[2]}px;
   margin: 0 auto;
   max-width: 600px;
 `;
@@ -20,18 +20,20 @@ export const StyledForm = styled(Form)`
 export const Input = styled(Field)`
   height: 2rem;
   border: 1px solid #6f4e37;
-  border-radius: 4px;
-  margin-bottom: 15px;
+  border-radius: ${theme.radii.sm};
+  padding: ${theme.space[2]}px;
+  margin-bottom: ${theme.space[2]}px;
 `;
 
 export const StyledButton = styled(Button)`
   width: 100%;
-  font-size: 18px; 
+  font-size: 18px;
   font-weight: 400;
   border-color: ${theme.colors.primary};
   background-color: ${theme.colors.primary};
   color: ${theme.colors.text};
-  margin-bottom: 15px;
+  margin-top: ${theme.space[3]}px;
+  margin-bottom: ${theme.space[4]}px;
 
   :hover,
   :focus {

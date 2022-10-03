@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filterSlice';
 import { selectContactsFilter } from 'redux/contacts/contactsSelectors';
 
-import { Form, Input, Label } from './Filter.styled';
+import { Form, Input } from './Filter.styled';
 
 const Filter = () => {
   const value = useSelector(selectContactsFilter);
@@ -12,8 +12,8 @@ const Filter = () => {
   const dispatch = useDispatch();
 
   return (
-    <Form>
-      <Label htmlFor="contactsFilter">Find contacts by name </Label>
+    <Form as="form">
+      <label htmlFor="contactsFilter">Find contacts by name </label>
 
       <Input
         id="contactsFilter"

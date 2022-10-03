@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/contactsOperations';
 import { selectContacts } from 'redux/contacts/contactsSelectors';
 
-import { StyledForm, Label, Input, Button } from './ContactForm.styled';
+import { StyledForm, Input, StyledButton } from './ContactForm.styled';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -53,15 +53,15 @@ const ContactForm = () => {
       onSubmit={onSubmitHandler}
     >
       <StyledForm>
-        <Label htmlFor={nameInputId}>Name</Label>
+        <label htmlFor={nameInputId}>Name</label>
         <Input id={nameInputId} type="text" name="name" autoComplete="off" />
-        <ErrorMessage name="name" component="div" />
+        <ErrorMessage name="name" component="div" style={{ color: 'red' }} />
 
-        <Label htmlFor={numberInputId}>Number</Label>
+        <label htmlFor={numberInputId}>Number</label>
         <Input id={numberInputId} type="tel" name="number" autoComplete="off" />
-        <ErrorMessage name="number" component="div" />
+        <ErrorMessage name="number" component="div" style={{ color: 'red' }} />
 
-        <Button type="submit">Add contact</Button>
+        <StyledButton type="submit">Add contact</StyledButton>
       </StyledForm>
     </Formik>
   );

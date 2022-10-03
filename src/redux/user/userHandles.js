@@ -9,7 +9,6 @@ export const fulfilled = state => {
 
 export const rejected = (state, action) => {
   state.isLoading = false;
-  console.log(action.payload)
   state.error = action.payload;
 };
 

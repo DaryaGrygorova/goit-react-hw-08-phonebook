@@ -4,7 +4,7 @@ import { theme } from '../../theme';
 
 export const StyledBox = styled(Box)`
   display: flex;
-  gap: 15px;
+  gap: ${theme.space[4]}px;
   align-items: center;
 `;
 

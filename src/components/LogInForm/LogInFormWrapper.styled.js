@@ -4,8 +4,8 @@ import { theme } from 'theme';
 
 export const StyledPaper = styled(Paper)`
   background-color: ${theme.colors.background};
-  padding: 15px;
-  border-radius: 10px;
+  padding: ${theme.space[4]}px;
+  border-radius: ${theme.radii.md};
   flex-grow: 1;
   width: 50%;
   align-self: center;

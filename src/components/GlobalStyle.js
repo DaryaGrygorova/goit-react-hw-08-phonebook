@@ -6,7 +6,10 @@ export const GlobalStyle = createGlobalStyle`
 body {
   margin: ${p => p.theme.space[0]}px;
   margin-top: 70px;  
-  padding: ${p=> p.theme.space[5]}px;
+  padding-left: ${p => p.theme.space[5]}px;
+  padding-right: ${p => p.theme.space[5]}px;
+  padding-top:  ${p => p.theme.space[3]}px;
+  padding-bottom:  ${p => p.theme.space[0]}px;
   font-family:  ${p=> p.theme.fonts.body};
   font-size: ${p=> p.theme.fontSizes.m};
   color: ${p => p.theme.colors.text};
@@ -28,7 +31,7 @@ h1, h2, h3, p {
 h1 {
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 25px;
+  margin-bottom: ${p=> p.theme.space[5]}px;
 }
 
 img {

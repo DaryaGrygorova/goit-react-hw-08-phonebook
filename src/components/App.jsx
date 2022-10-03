@@ -9,11 +9,12 @@ import PrivateRoute from './PrivateRoute';
 import { userAuthSelector } from 'redux/user/userSelectors';
 import PublicRoute from './PublicRoute';
 
-const ContactsPage = lazy(() => import('Pages/ContactsPage'));
-const Layout = lazy(() => import('components/Layout'));
+const Layout = lazy(() => import('components/Layouts/AppLayout'));
 const LoginPage = lazy(() => import('Pages/LoginPage/LoginPage'));
 const RegisterPage = lazy(() => import('Pages/RegisterPage/RegisterPage'));
+const ContactsPage = lazy(() => import('Pages/ContactsPage/ContactsPage'));
 const HomePage = lazy(() => import('Pages/HomePage'));
+const ContactList = lazy(() => import('components/ContactList'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -42,7 +43,9 @@ export const App = () => {
             <Route
               element={<PrivateRoute isLogIn={isLogIn} redirectPath="login" />}
             >
-              <Route path="contacts" element={<ContactsPage />} />
+              <Route path="contacts" element={<ContactsPage />}>
+                <Route index element={<ContactList />} />
+              </Route>
               <Route path="home" element={<HomePage />} />
             </Route>
           </Route>
