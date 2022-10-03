@@ -1,5 +1,5 @@
 import { Bars } from 'react-loader-spinner';
-import { Box } from './Box';
+import { Box } from '@mui/material';
 
 const Loader = () => {
   return (

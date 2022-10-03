@@ -1,14 +1,13 @@
-import { Box, styled as styledMui } from "@mui/system";
-import styled from "styled-components"
+import { List, ListItem, styled } from "@mui/material";
 import { theme } from "theme";
 
-export const StyledBox = styledMui(Box)`
+export const StyledList = styled(List)`
 display: flex;
  gap: ${theme.space[3]}px;
  flex-direction: column;
 `;
 
-export const StyledItemWrap = styled.li`
+export const StyledListItem = styled(ListItem)`
           display: flex;
           gap: 16px;
           flex-basis: 49%;

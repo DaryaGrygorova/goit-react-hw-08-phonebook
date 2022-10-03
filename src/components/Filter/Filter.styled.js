@@ -1,8 +1,7 @@
-import { Box, styled as styledMui } from '@mui/material';
-import  styled from "styled-components";
+import { Box, styled, TextField } from '@mui/material';
 import { theme } from 'theme';
 
-export const Form = styledMui(Box)`
+export const Form = styled(Box)`
   display: flex;
   flex-direction: column;
   gap: ${theme.space[3]}px;
@@ -13,9 +12,11 @@ export const Form = styledMui(Box)`
 //   font-weight: 400;
 // `;
 
-export const Input = styled.input`
-  border: 1px solid #6f4e37;
-  padding: ${theme.space[2]}px;
+export const Input = styled(TextField)`
+outline: true;
+font-size: 16px;
+  /* padding: ${theme.space[2]}px; */
   border-radius: ${theme.radii.sm};
   width: 200px;
+  background-color: ${theme.colors.background};
 `;

@@ -5,30 +5,36 @@ import ContactItem from './ContactItem';
 import Notification from 'components/Notification';
 
 import {
+  selectContactsFilter,
   selectContactsIsLoading,
   selectFilteredContacts,
 } from 'redux/contacts/contactsSelectors';
 
-import { StyledBox, StyledItemWrap } from './ContactList.styled';
+import { StyledList, StyledListItem } from './ContactList.styled';
 
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
+  const contactsFilter = useSelector(selectContactsFilter);
   const isLoading = useSelector(selectContactsIsLoading);
 
   return (
     <>
       {isLoading && <LinearProgress color="secondary" />}
-      <StyledBox as="ul">
+      <StyledList dense={false}>
         {contacts?.length > 0 ? (
           contacts.map(({ name, number, id }) => (
-            <StyledItemWrap key={id}>
+            <StyledListItem key={id}>
               <ContactItem name={name} number={number} id={id} />
-            </StyledItemWrap>
+            </StyledListItem>
           ))
         ) : (
-          <Notification message="There are no contacts." />
+          <Notification
+            message={
+              contactsFilter ? 'No matches found' : 'Add your first contacts'
+            }
+          />
         )}
-      </StyledBox>
+      </StyledList>
     </>
   );
 };

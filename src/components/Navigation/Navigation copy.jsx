@@ -1,5 +1,5 @@
 // import { useDispatch } from 'react-redux';
-import { Box } from 'components/Box';
+import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
