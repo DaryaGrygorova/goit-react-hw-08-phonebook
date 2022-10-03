@@ -1,10 +1,11 @@
 import { Typography } from '@mui/material';
-import { useSelector } from 'react-redux';
 
-import { userAuthSelector } from 'redux/user/userSelectors';
+import useAuth from 'hooks/useAuth';
 
 const HomePage = () => {
-  const { name } = useSelector(userAuthSelector.selectUserProfile);
+  const {
+    profile: { name },
+  } = useAuth();
 
   return (
     <>

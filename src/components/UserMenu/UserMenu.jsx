@@ -1,16 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { userAuthSelector } from 'redux/user/userSelectors';
 import { logOut } from 'redux/user/userOperations';
+import useAuth from 'hooks/useAuth';
 
 import { StyledBox, StyledButton } from './UserMenu.styled';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
-  const profile = useSelector(userAuthSelector.selectUserProfile);
+  const { profile } = useAuth();
+
   const handleClick = () => {
     dispatch(logOut());
   };
+
   return (
     <StyledBox>
       <p>{profile.email}</p>

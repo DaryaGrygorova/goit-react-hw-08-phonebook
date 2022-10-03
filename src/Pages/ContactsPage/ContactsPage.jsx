@@ -1,25 +1,25 @@
-import { LinearProgress, Typography } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
+import { Box, LinearProgress, Typography } from '@mui/material';
+import { useDispatch } from 'react-redux';
 import { Outlet } from 'react-router';
 import { Suspense, useEffect } from 'react';
 
-import { Box } from 'components/Box';
 import ContactForm from 'components/ContactForm';
 
+import Filter from 'components/Filter';
+import FromAuthor from 'components/FromAuthor';
+
+import useAuth from 'hooks/useAuth';
 import { fetchContacts } from 'redux/contacts/contactsOperations';
-import { userAuthSelector } from 'redux/user/userSelectors';
 
 import {
   StyledSideBar,
   StyledSidebarThumb,
   StyledContentWrap,
 } from './ContactsPage.styled';
-import Filter from 'components/Filter';
-import FromAuthor from 'components/FromAuthor';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
-  const isLogIn = useSelector(userAuthSelector.selectIsLogIn);
+  const { isLogIn } = useAuth();
 
   useEffect(() => {
     if (isLogIn) {
