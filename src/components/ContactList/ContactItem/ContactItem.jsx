@@ -1,16 +1,11 @@
 import { LocalPhone } from '@mui/icons-material';
-import { Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
 import { deleteContact } from 'redux/contacts/contactsOperations';
 
-import {
-  Info,
-  StyledWrap,
-  StyledAvatar,
-  StyledButton,
-} from './ContactItem.styled';
+import { StyledWrap, StyledAvatar, StyledButton } from './ContactItem.styled';
 
 const ContactItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -18,19 +13,25 @@ const ContactItem = ({ name, number, id }) => {
 
   return (
     <>
-      <Info>
-        <StyledWrap>
-          <StyledAvatar>{name[0].toUpperCase()}</StyledAvatar>
-          <Typography variant="h6">{name}</Typography>
-        </StyledWrap>
-        <StyledWrap>
-          <LocalPhone />
-          <Typography variant="subtitle1">{number}</Typography>
-        </StyledWrap>
-      </Info>
-      <StyledButton type="button" onClick={OnDeleteHandle}>
-        Delete
-      </StyledButton>
+      <Grid container spacing={1} sx={{ alignItems: 'center' }}>
+        <Grid item xs={5}>
+          <StyledWrap>
+            <StyledAvatar>{name[0].toUpperCase()}</StyledAvatar>
+            <Typography variant="body1">{name}</Typography>
+          </StyledWrap>
+        </Grid>
+        <Grid item xs={5}>
+          <StyledWrap>
+            <LocalPhone />
+            <Typography variant="subtitle1">{number}</Typography>
+          </StyledWrap>
+        </Grid>
+        <Grid item xs={2}>
+          <StyledButton type="button" onClick={OnDeleteHandle}>
+            Delete
+          </StyledButton>
+        </Grid>
+      </Grid>
     </>
   );
 };

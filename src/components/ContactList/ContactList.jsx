@@ -9,7 +9,7 @@ import {
   selectFilteredContacts,
 } from 'redux/contacts/contactsSelectors';
 
-import { StyledBox, StyledWrap } from './ContactList.styled';
+import { StyledBox, StyledItemWrap } from './ContactList.styled';
 
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
@@ -21,9 +21,9 @@ const ContactList = () => {
       <StyledBox as="ul">
         {contacts?.length > 0 ? (
           contacts.map(({ name, number, id }) => (
-            <StyledWrap key={id}>
+            <StyledItemWrap key={id}>
               <ContactItem name={name} number={number} id={id} />
-            </StyledWrap>
+            </StyledItemWrap>
           ))
         ) : (
           <Notification message="There are no contacts." />

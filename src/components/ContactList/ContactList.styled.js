@@ -8,7 +8,7 @@ display: flex;
  flex-direction: column;
 `;
 
-export const StyledWrap = styled.li`
+export const StyledItemWrap = styled.li`
           display: flex;
           gap: 16px;
           flex-basis: 49%;
