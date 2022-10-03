@@ -9,7 +9,7 @@ import PrivateRoute from './PrivateRoute';
 import { userAuthSelector } from 'redux/user/userSelectors';
 import PublicRoute from './PublicRoute';
 
-const Layout = lazy(() => import('components/Layouts/AppLayout'));
+const Layout = lazy(() => import('components/AppLayout'));
 const LoginPage = lazy(() => import('Pages/LoginPage/LoginPage'));
 const RegisterPage = lazy(() => import('Pages/RegisterPage/RegisterPage'));
 const ContactsPage = lazy(() => import('Pages/ContactsPage/ContactsPage'));

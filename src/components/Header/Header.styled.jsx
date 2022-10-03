@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Container, styled } from '@mui/material';
+import { AppBar, Toolbar, styled } from '@mui/material';
 
 import { theme } from '../../theme';
 

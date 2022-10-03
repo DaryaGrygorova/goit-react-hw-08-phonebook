@@ -15,6 +15,7 @@ import {
   StyledContentWrap,
 } from './ContactsPage.styled';
 import Filter from 'components/Filter';
+import FromAuthor from 'components/FromAuthor';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -33,8 +34,10 @@ const ContactsPage = () => {
           <Typography as="h1" variant="h5" my={0}>
             My PhoneBook
           </Typography>
+
           <ContactForm />
           <Filter />
+          <FromAuthor />
         </StyledSidebarThumb>
       </StyledSideBar>
 
