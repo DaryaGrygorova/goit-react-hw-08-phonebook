@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, Button, styled } from '@mui/material';
 
 import { userAuthSelector } from 'redux/user/userSelectors';
 import { logOut } from 'redux/user/userOperations';
-import { theme } from './../../theme';
+
+import { StyledBox, StyledButton } from './UserMenu.styled';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
@@ -12,34 +12,13 @@ const UserMenu = () => {
     dispatch(logOut());
   };
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        gap: '15px',
-        alignItems: 'center',
-      }}
-    >
+    <StyledBox>
       <p>{profile.email}</p>
-      <StyledButton
-        variant="outlined"
-        onClick={handleClick}
-        sx={{ my: 2, display: 'block', color: 'inherit' }}
-      >
+      <StyledButton variant="outlined" onClick={handleClick} my={2}>
         Log Out
       </StyledButton>
-    </Box>
+    </StyledBox>
   );
 };
-
-const StyledButton = styled(Button)`
-  color: inherit;
-  border-color: ${theme.colors.accent};
-
-  :hover {
-    background-color: ${theme.colors.accent};
-    color: ${theme.colors.white};
-    border-color: ${theme.colors.accent};
-  }
-`;
 
 export default UserMenu;

@@ -3,9 +3,9 @@ import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
 import { useDispatch } from 'react-redux';
-
-import { StyledForm, Label, Input, StyledButton } from './RegisterForm.styled';
 import { signUp } from '../../redux/user/userOperations';
+
+import { StyledForm, Input, StyledButton } from './RegisterForm.styled';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -53,15 +53,15 @@ const RegisterForm = () => {
       onSubmit={onSubmitHandler}
     >
       <StyledForm>
-        <Label htmlFor={nameInputId}>Name</Label>
+        <label htmlFor={nameInputId}>Name</label>
         <Input id={nameInputId} type="text" name="name" autoComplete="off" />
         <ErrorMessage name="name" component="div" />
 
-        <Label htmlFor={emailInputId}>E-mail</Label>
+        <label htmlFor={emailInputId}>E-mail</label>
         <Input id={emailInputId} type="email" name="email" autoComplete="off" />
         <ErrorMessage name="email" component="div" />
 
-        <Label htmlFor={passwordInputId}>Password</Label>
+        <label htmlFor={passwordInputId}>Password</label>
         <Input
           id={passwordInputId}
           type="password"

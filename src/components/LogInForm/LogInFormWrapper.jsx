@@ -1,20 +1,24 @@
 import { Link as RouteLink } from 'react-router-dom';
 import { Link, Typography } from '@mui/material';
 
-import { StyledPaper } from './LogInForm.styled';
+import {
+  StyledPaper,
+  StyledSpan,
+  StyledParagraph,
+} from './LogInFormWrapper.styled';
 
 const LogInFormWrapper = ({ children }) => {
   const ROUTE_HOME_PAGE = process.env.REACT_APP_ROUTE_HOME_PAGE;
 
   return (
-    <StyledPaper elevation={5} variant="outlined">
-      <Typography paragraph variant="h5" sx={{ textAlign: 'center' }}>
+    <StyledPaper elevation={5}>
+      <StyledParagraph paragraph variant="h5">
         Please{' '}
-        <Typography component="span" variant="h5" sx={{ fontWeight: '600' }}>
+        <StyledSpan component="span" variant="h5">
           login
-        </Typography>{' '}
+        </StyledSpan>{' '}
         to use
-      </Typography>
+      </StyledParagraph>
 
       {children}
 

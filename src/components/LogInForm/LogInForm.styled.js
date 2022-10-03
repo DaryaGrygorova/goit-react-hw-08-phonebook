@@ -1,17 +1,8 @@
-import styled from 'styled-components';
-import { styled as muiStyled } from '@mui/material';
-import { Form, Field } from 'formik';
-import { Paper, Button } from '@mui/material';
-import { theme } from 'theme';
+import { styled } from '@mui/material';
+import { Button } from '@mui/material';
 
-export const StyledPaper = muiStyled(Paper)`
-  background-color: ${theme.colors.background};
-  padding: 15px;
-  border-radius: 10px;
-  flex-grow: 1;
-  width: 50%;
-  align-self: center;
-`;
+import { Form, Field } from 'formik';
+import { theme } from 'theme';
 
 export const StyledForm = styled(Form)`
   display: flex;
@@ -21,10 +12,10 @@ export const StyledForm = styled(Form)`
   max-width: 600px;
 `;
 
-export const Label = styled.label`
-  font-size: 24px;
-  font-weight: 700;
-`;
+// export const Label = styled.label`
+//   font-size: 24px;
+//   font-weight: 700;
+// `;
 
 export const Input = styled(Field)`
   height: 2rem;
@@ -33,7 +24,7 @@ export const Input = styled(Field)`
   margin-bottom: 15px;
 `;
 
-export const StyledButton = muiStyled(Button)`
+export const StyledButton = styled(Button)`
   width: 100%;
   font-size: 18px; 
   font-weight: 400;

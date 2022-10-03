@@ -11,8 +11,8 @@ import PublicRoute from './PublicRoute';
 
 const ContactsPage = lazy(() => import('Pages/ContactsPage'));
 const Layout = lazy(() => import('components/Layout'));
-const LoginPage = lazy(() => import('Pages/LoginPage'));
-const RegisterPage = lazy(() => import('Pages/RegisterPage'));
+const LoginPage = lazy(() => import('Pages/LoginPage/LoginPage'));
+const RegisterPage = lazy(() => import('Pages/RegisterPage/RegisterPage'));
 const HomePage = lazy(() => import('Pages/HomePage'));
 
 export const App = () => {

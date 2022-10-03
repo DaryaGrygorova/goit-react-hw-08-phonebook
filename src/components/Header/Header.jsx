@@ -1,32 +1,25 @@
 import { useSelector } from 'react-redux';
-import { AppBar, Toolbar, Container } from '@mui/material';
+import { Container } from '@mui/material';
 
 import AuthNav from 'components/AuthNav';
 import Navigation from 'components/Navigation/Navigation';
 import UserMenu from '../UserMenu/UserMenu';
 
 import { userAuthSelector } from 'redux/user/userSelectors';
-import { theme } from './../../theme';
+import { StyledAppBar, StyledToolbar } from './Header.styled';
 
 const Header = () => {
   const isLogIn = useSelector(userAuthSelector.selectIsLogIn);
 
   return (
-    <AppBar
-      position="fixed"
-      component="header"
-      sx={{ backgroundColor: '#d2c5f9' }}
-    >
+    <StyledAppBar position="fixed" component="header">
       <Container maxWidth="md">
-        <Toolbar
-          disableGutters
-          sx={{ justifyContent: 'space-between', color: theme.colors.text }}
-        >
+        <StyledToolbar disableGutters>
           <Navigation />
           {isLogIn ? <UserMenu /> : <AuthNav />}
-        </Toolbar>
+        </StyledToolbar>
       </Container>
-    </AppBar>
+    </StyledAppBar>
   );
 };
 
