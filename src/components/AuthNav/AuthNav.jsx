@@ -1,13 +1,17 @@
-// import { useDispatch } from 'react-redux';
-import { Box } from 'components/Box';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import { StyledButton, StyledBox } from './AuthNav.styled';
 
 const AuthNav = () => {
   return (
-    <Box display="flex" gridGap="15px">
-      <Link to="register">Sign up</Link>
-      <Link to="login">Log In</Link>
-    </Box>
+    <StyledBox>
+      <StyledButton component={NavLink} variant="outlined" to="register" my={2}>
+        Sign up
+      </StyledButton>
+      <StyledButton component={NavLink} variant="outlined" to="login" my={2}>
+        Log In
+      </StyledButton>
+    </StyledBox>
   );
 };
 

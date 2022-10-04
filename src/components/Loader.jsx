@@ -1,12 +1,12 @@
 import { Bars } from 'react-loader-spinner';
-import { Box } from './Box';
+import { Box } from '@mui/material';
 
 const Loader = () => {
   return (
     <Box
       display="flex"
       alignItems="center"
-      height="95vw"
+      height="50vw"
       justifyContent="center"
     >
       <Bars

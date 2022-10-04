@@ -1,13 +1,17 @@
-// import { useDispatch } from 'react-redux';
-import { Box } from 'components/Box';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import { StyledLink, StyledBox } from './Navigation.styled';
 
 const Navigation = () => {
   return (
-    <Box display="flex" gridGap="15px">
-      <Link to="home">Home</Link>
-      <Link to="contacts">Contacts</Link>
-    </Box>
+    <StyledBox>
+      <StyledLink component={NavLink} to="home" my={2}>
+        Home
+      </StyledLink>
+      <StyledLink to="contacts" component={NavLink} my={2}>
+        Contacts
+      </StyledLink>
+    </StyledBox>
   );
 };
 

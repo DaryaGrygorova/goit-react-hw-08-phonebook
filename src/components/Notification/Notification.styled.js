@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import { Typography, styled } from '@mui/material';
 
-export const Message = styled.p`
+export const StyledMessage = styled(Typography)`
    display: block;
     text-align: center;
-    margin: 0 auto 15px;
+    margin: 0 auto ${p=>p.theme.space[4]}px;
 `;
 

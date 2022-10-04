@@ -10,13 +10,18 @@ import { App } from 'components/App';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 
+import { ThemeProvider as MUIThemeProvider } from '@mui/material';
+import { myTheme } from './myTheme';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <App />
+            <MUIThemeProvider theme={myTheme}>
+              <App />
+            </MUIThemeProvider>
           </ThemeProvider>
         </Provider>
       </BrowserRouter>

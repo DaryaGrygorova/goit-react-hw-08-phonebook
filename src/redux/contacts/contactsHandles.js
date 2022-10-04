@@ -23,7 +23,6 @@ export const addItem = (state, action) => {
 
 export const deleteItem = (state, action) => {
   const idx = state.items.findIndex(item => item.id === action.payload);
-  console.log(action.payload)
   state.items.splice(idx, 1);
 };
 

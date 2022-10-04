@@ -1,22 +1,25 @@
-// import { useDispatch } from 'react-redux';
-import { Box } from 'components/Box';
-import { useDispatch, useSelector } from 'react-redux';
-import { userAuthSelector } from 'redux/user/userSelectors';
+import { useDispatch } from 'react-redux';
+
 import { logOut } from 'redux/user/userOperations';
+import useAuth from 'hooks/useAuth';
+
+import { StyledBox, StyledButton } from './UserMenu.styled';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
-  const profile = useSelector(userAuthSelector.selectUserProfile);
+  const { profile } = useAuth();
+
   const handleClick = () => {
     dispatch(logOut());
   };
+
   return (
-    <Box display="flex" gridGap="15px">
+    <StyledBox>
       <p>{profile.email}</p>
-      <button type="button" onClick={handleClick}>
-        Logout
-      </button>
-    </Box>
+      <StyledButton variant="outlined" onClick={handleClick} my={2}>
+        Log Out
+      </StyledButton>
+    </StyledBox>
   );
 };
 
