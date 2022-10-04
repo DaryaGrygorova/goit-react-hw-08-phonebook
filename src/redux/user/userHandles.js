@@ -9,7 +9,9 @@ export const fulfilled = state => {
 
 export const rejected = (state, action) => {
   state.isLoading = false;
-  state.error = action.payload;
+  debugger
+  if (action.payload !== 'Unauthorized'){
+  state.error = action.payload;}
 };
 
 export const fetchUser = (state, action) => {

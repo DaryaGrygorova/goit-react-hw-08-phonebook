@@ -2,13 +2,17 @@ import { nanoid } from 'nanoid';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
+import Notification from 'components/Notification';
+
 import { useDispatch } from 'react-redux';
-import { logIn } from '../../redux/user/userOperations';
+import { logIn } from 'redux/user/userOperations';
+import useAuth from 'hooks/useAuth';
 
 import { StyledForm, Input, StyledButton } from './LogInForm.styled';
 
 const LogInForm = () => {
   const dispatch = useDispatch();
+  const { isError } = useAuth();
 
   const emailInputId = nanoid();
   const passwordInputId = nanoid();
@@ -60,6 +64,10 @@ const LogInForm = () => {
         />
 
         <StyledButton type="submit">Log in</StyledButton>
+
+        {!!isError && !isError.includes('401') && (
+          <Notification error message="Something wrong... Please, try again" />
+        )}
       </StyledForm>
     </Formik>
   );

@@ -3,8 +3,9 @@ const { userAuthSelector } = require("redux/user/userSelectors");
 
 const useAuth = () => { 
     const isLogIn = useSelector(userAuthSelector.selectIsLogIn);
-        
     const profile = useSelector(userAuthSelector.selectUserProfile);
-    return { isLogIn, profile };
+    const isError = useSelector(userAuthSelector.selectUserError);
+        
+    return { isLogIn, profile, isError };
 };
 export default useAuth;
