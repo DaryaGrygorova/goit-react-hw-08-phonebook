@@ -1,40 +1,35 @@
 import { Button, styled } from '@mui/material';
 import { Form, Field } from 'formik';
-import { theme } from 'theme';
 
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  gap: ${theme.space[2]}px;
+  gap: ${p=>p.theme.space[2]}px;
   width: 245px;
-  padding: ${theme.space[4]}px ${theme.space[3]}px;
+  padding: ${p=>p.theme.space[4]}px ${p=>p.theme.space[3]}px;
   margin: 0 auto;
-  border-radius: ${theme.radii.md};
-  background-color: ${theme.colors.background};
+  border-radius: ${p=>p.theme.radii.md};
+  background-color: ${p=>p.theme.colors.background};
 `;
-
-// export const Label = styled.label`
-// font-weight: 700;
-// `;
 
 export const Input = styled(Field)`
   border: 1px solid #6f4e37;
-  padding: ${theme.space[2]}px;
-  border-radius: ${theme.radii.sm};
-  margin-bottom: ${theme.space[2]}px;
+  padding: ${p=>p.theme.space[2]}px;
+  border-radius: ${p=>p.theme.radii.sm};
+  margin-bottom: ${p=>p.theme.space[2]}px;
 `;
 
 export const StyledButton = styled(Button)`
   width: 100%;
-  border-color: ${theme.colors.primary};
-  background-color: ${theme.colors.primary};
-  color: ${theme.colors.text};
-  margin-top: ${theme.space[3]}px;
+  border-color: ${p=>p.theme.colors.primary};
+  background-color: ${p=>p.theme.colors.primary};
+  color: ${p=>p.theme.colors.text};
+  margin-top: ${p=>p.theme.space[3]}px;
 
   :hover,
   :focus {
     font-weight: 600;
-    background-color: ${theme.colors.secondary};
-    color: ${theme.colors.white};
+    background-color: ${p=>p.theme.colors.secondary};
+    color: ${p=>p.theme.colors.white};
   }
 `;

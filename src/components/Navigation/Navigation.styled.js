@@ -1,5 +1,4 @@
 import { Box, Link, styled } from '@mui/material';
-import { theme } from 'theme';
 
 export const StyledLink = styled(Link)`
   color: inherit;
@@ -16,6 +15,6 @@ export const StyledLink = styled(Link)`
 
 export const StyledBox = styled(Box)`
   display: flex;
-  gap: ${theme.space[4]}px;
+  gap: ${p=>p.theme.space[4]}px;
   align-items: center;
 `;

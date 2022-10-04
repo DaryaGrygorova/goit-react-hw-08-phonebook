@@ -1,5 +1,4 @@
 import { Box, styled, Typography } from '@mui/material';
-import { theme } from 'theme';
 
 export const StyledBox = styled(Box)`
   width: 55%;
@@ -16,6 +15,6 @@ export const StyledSpan = styled(Typography)`
 `;
 
 export const StyledParagraph = styled(Typography)`
-  text-indent: ${theme.space[4]}px;
+  text-indent: ${p => p.theme.space[4]}px;
   text-align: start;
 `;

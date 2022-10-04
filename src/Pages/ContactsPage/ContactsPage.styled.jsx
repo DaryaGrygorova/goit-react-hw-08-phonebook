@@ -1,5 +1,4 @@
 import { Box, styled } from '@mui/material';
-import { theme } from 'theme';
 
 export const StyledSideBar = styled(Box)`
   position: relative;
@@ -17,6 +16,6 @@ export const StyledSidebarThumb = styled(Box)`
 `;
 
 export const StyledContentWrap = styled(Box)`
-  padding: ${theme.space[4]}px;
+  padding: ${p => p.theme.space[4]}px;
   flex-grow: 1;
 `;
