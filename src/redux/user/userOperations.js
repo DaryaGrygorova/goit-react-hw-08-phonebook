@@ -19,7 +19,7 @@ export const fetchCurrentUser = createAsyncThunk(
     try {
       const persistedToken = thunkAPI.getState().user.token;
       if (!persistedToken) {
-        throw new Error('Unauthorized user');
+        throw new Error('Unauthorized');
       }
       token.set(thunkAPI.getState().user.token);
       const response = await axios.get('/users/current');
@@ -38,6 +38,7 @@ export const signUp = createAsyncThunk(
       token.set(response.data.token);
       return response.data;
     } catch (err) {
+      console.log(err.message)
       return thunkAPI.rejectWithValue(err.message);
     }
   }
